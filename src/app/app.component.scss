@@ -1,0 +1,25 @@
+@import "../styles.scss";
+
+.container {
+  position: absolute;
+  width: 100%;
+  //border: 1px solid white;
+}
+
+.left-side-component {
+  position: relative;
+  display: inline-block;
+  //border: 2px solid $white;
+  width: 20%;
+  padding: 1em;
+}
+
+.right-side-component {
+  position: absolute;
+  display: inline-block;
+  //border: 2px solid $white;
+  top: 0;
+  padding: 1em;
+  width: 79%;
+}
+

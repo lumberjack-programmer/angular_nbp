@@ -3,7 +3,7 @@ import {Currency} from "../../models/currency";
 import {CurrencyService} from "../../services/currency.service";
 import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 import {DatePipe} from "@angular/common";
-import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
+import {UntypedFormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
 
 
@@ -12,7 +12,7 @@ interface DateConfig {
   viewValue: string;
 }
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -35,7 +35,7 @@ export class ExchangeRatesComponent implements OnInit {
   changeCount: number = 0;
 
 
-  numberFormControl = new FormControl('', [Validators.required, Validators.pattern('(?<=^|- )\\d+(\\.\\d+)?(?=$| )')]);
+  numberFormControl = new UntypedFormControl('', [Validators.required, Validators.pattern('(?<=^|- )\\d+(\\.\\d+)?(?=$| )')]);
 
   matcher = new MyErrorStateMatcher();
 
@@ -51,8 +51,8 @@ export class ExchangeRatesComponent implements OnInit {
   ];
 
   // Datepicker selected value
-  date = new FormControl(new Date());
-  serializedDate = new FormControl(new Date().toISOString());
+  date = new UntypedFormControl(new Date());
+  serializedDate = new UntypedFormControl(new Date().toISOString());
 
   selected = this.choices[0].value;
 

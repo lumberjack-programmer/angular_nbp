@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 import {RangeService} from "../../services/range.service";
 import {Currency} from "../../models/currency";
 import {Range} from "../../models/range";
@@ -39,9 +39,9 @@ export class DateRangeComponent implements OnInit {
   constructor(private rangeService: RangeService, private currencyService: CurrencyService) {
   }
 
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl(),
+  range = new UntypedFormGroup({
+    start: new UntypedFormControl(),
+    end: new UntypedFormControl(),
   });
 
   ngOnInit(): void {
@@ -69,7 +69,7 @@ export class DateRangeComponent implements OnInit {
     );
   }
 
-  selectRange(event: FormGroup) {
+  selectRange(event: UntypedFormGroup) {
     let value = event.value;
     let start: any = 'start';
     let end: any = 'end';

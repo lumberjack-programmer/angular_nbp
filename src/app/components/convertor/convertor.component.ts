@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 
 interface Food {
   value: string;
@@ -19,9 +19,9 @@ export class ConvertorComponent implements OnInit {
     {value: 'pick-range', viewValue: 'Range'},
   ];
 
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl(),
+  range = new UntypedFormGroup({
+    start: new UntypedFormControl(),
+    end: new UntypedFormControl(),
   });
 
   constructor() { }
