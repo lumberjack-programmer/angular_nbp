@@ -1,0 +1,9 @@
+<div class="gold-price">
+  <h4 class="section-name">Gold Price Today</h4>
+  <div class="price-list">
+    <div *ngFor="let temp of prices">
+      <div class="price-list-data">{{temp.data}}</div>
+      <div class="price-list-cena">{{temp.cena}} zl/g </div>
+    </div>
+  </div>
+</div>

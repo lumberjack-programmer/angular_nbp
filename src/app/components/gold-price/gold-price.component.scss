@@ -1,0 +1,38 @@
+@import "../../../styles";
+
+//Gold price section
+.gold-price {
+  width: 25em;
+  background-color: $mostly-back;
+  height: 10em;
+  padding: 2em;
+  border-radius: 2em;
+  border: 1px solid $dark-grayish-blue;
+  color: $dark-grayish-blue;
+  margin-top: 4em;
+
+}
+
+.price-list {
+  position: relative;
+  width: 100%;
+}
+
+.section-name {
+  color: $white;
+}
+
+.price-list-data {
+  display: inline-block;
+  background-color: $dark-blue;
+  padding: 1em;
+  margin: 1em;
+  border-radius: .5em;
+}
+
+.price-list-cena {
+  display: inline-block;
+  background-color: $dark-blue;
+  padding: 1em;
+  border-radius: .5em;
+}

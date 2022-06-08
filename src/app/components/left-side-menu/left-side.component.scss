@@ -1,0 +1,87 @@
+@import "../../../styles";
+
+
+
+
+div .two-letters {
+  color: $dark-magenta;
+}
+
+div.logo {
+  position: relative;
+  color: $white;
+  align-content: center;
+  text-align: center;
+  padding: 2em;
+  font-family: $font-family;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Menu list
+.left-side-menu-list {
+  margin-top: 15em;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    list-style-type: none;
+    //border: 1px solid;
+    li {
+      padding: 6px 0;
+
+      .left-side-menu-button {
+        display: inline;
+      }
+      a {
+        position: relative;
+        display: block;
+        padding: 4px 0;
+        color: $dark-grayish-blue;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: 0.5s;
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 100%;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: $dark-magenta;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.5s;
+        }
+
+        &:hover {
+          color: $white;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+//.filter-green {
+//  filter: invert(37%) sepia(4%) saturate(599%) hue-rotate(194deg) brightness(94%) contrast(85%);
+//}
+//
+//.filter-green:hover {
+//  filter: invert(100%) sepia(0%) saturate(7495%) hue-rotate(349deg) brightness(99%) contrast(105%);
+//}
+
+

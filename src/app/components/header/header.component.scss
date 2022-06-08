@@ -1,0 +1,53 @@
+@import "../../../styles";
+
+
+.header {
+  //border: 1px solid white;
+  width: 90%;
+  height: 10px;
+}
+
+.top-nav {
+  right: 0;
+  a {
+    color: white;
+  }
+
+}
+
+.top-nav-button {
+  display: inline-block;
+  float: right;
+  margin-right: 0;
+  background-color: $very-dark-blue;
+  width: 10em;
+  text-align: center;
+  //align-content: center;
+  padding: .7em;
+  a {
+    text-decoration: none;
+    color: $dark-grayish-blue;
+  }
+
+  &:hover{
+    background-color: $dark-grayish-blue;
+    cursor: pointer;
+
+    a {
+      color: $white;
+    }
+
+  }
+}
+
+.top-nav-button.left-round {
+  border-radius: 0 10px 10px 0;
+}
+
+.top-nav-button.right-round {
+  border-radius: 10px 0 0 10px;
+}
+
+.icon-button {
+  margin: 10px;
+}

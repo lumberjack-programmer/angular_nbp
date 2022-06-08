@@ -1,1 +1,184 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$test-primary: mat.define-palette(mat.$indigo-palette);
+$test-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$test-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$test-theme: mat.define-light-theme((
+  color: (
+    primary: $test-primary,
+    accent: $test-accent,
+    warn: $test-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($test-theme);
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+// Colors
+$very-dark-blue : #151718;
+$dark-blue : #1E1F23;
+$mostly-back : #0F1112;
+$light-blue : #927CFF;
+$vivid-cyan : #01F0C8;
+$dark-grayish-blue : #5D5E64;
+$dark-cyan : #105A4E;
+$desaturated-blue : #3C375F;
+$light-blue : #927CFF;
+$dark-magenta : #AF179A;
+$white : #fff;
+
+//Fonts
+$font-family: Arial, Helvetica, sans-serif;
+
+.mat-form-field-appearance-fill .mat-form-field-flex  {
+  background-color: $dark-blue;
+  border-radius: 1em !important;
+  text-align: center;
+}
+
+.mat-form-field-empty.mat-form-field-label, .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  padding-top: .2em;
+}
+
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+  background-color: $dark-magenta;
+}
+
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: $dark-magenta !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: $dark-magenta !important;;
+}
+
+::ng-deep .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+
+
+mat-datepicker-toggle {
+  color: white !important;
+}
+
+
+.mat-select-value-text {
+  color: $white;
+}
+
+.mat-select-arrow {
+  color: $dark-magenta !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0.25em 0 1.3em 0;
+}
+
+
+
+
+.currency-rates-table {
+  margin-top: 3em;
+}
+
+
+
+body {
+  background-color: $dark-blue;
+  margin: 0;
+  color: $white;
+  font-family: $font-family;
+  font-size: 1.3rem;
+}
+
+
+
+.body-container {
+  background-color: $very-dark-blue;
+  margin-top: 6em;
+  border-radius: 60px 0px 0px 0px;
+  padding: 4em;
+  min-height: 50em;
+  position: absolute;
+  width: 100%;
+  box-shadow: inset 7px 7px 47px 22px rgba(0, 0, 0, 0.25);
+  // border: 1px solid white;
+}
+
+//.top-content {
+//  position: relative;
+//  //border: 1px solid white;
+//  width: 100%;
+//  display: flex;
+//}
+
+.icon-circle {
+  width: 5em;
+  height: 5em;
+  //background-color: $dark-grayish-blue;
+  //background-image: linear-gradient(to right, red , yellow);
+  background-image: linear-gradient(to right, $dark-magenta , $dark-cyan);
+  border-radius: 5em;
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.icon-circle img {
+  width: 50%;
+}
+
+.page-title {
+  position: relative;
+  margin-top: 1.3em;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
