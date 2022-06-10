@@ -5,6 +5,8 @@ import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 import {DatePipe} from "@angular/common";
 import {UntypedFormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 
 interface DateConfig {
@@ -41,8 +43,8 @@ export class ExchangeRatesComponent implements OnInit {
 
 
 
-  isAllRates : boolean = false;
-  isSpecificRate : boolean = true;
+  isAllRates: boolean = false;
+  isSpecificRate: boolean = true;
 
   // Dropdown list
   choices: DateConfig[] = [
@@ -53,17 +55,18 @@ export class ExchangeRatesComponent implements OnInit {
   // Datepicker selected value
   date = new UntypedFormControl(new Date());
   serializedDate = new UntypedFormControl(new Date().toISOString());
+  pdfDate: string = `${new Date().toISOString().substring(0, 10)}`;
 
   selected = this.choices[0].value;
 
   // @ts-ignore
-  currencies : Currency[];
+  currencies: Currency[];
   //Date to be picked
   events: string[] = [];
 
-  log : number = -1;
+  log: number = -1;
 
-  constructor(private currencyService: CurrencyService, private datepipe : DatePipe, ) {
+  constructor(private currencyService: CurrencyService, private datepipe: DatePipe,) {
   }
 
   ngOnInit(): void {
@@ -78,7 +81,7 @@ export class ExchangeRatesComponent implements OnInit {
     );
   }
 
-  getCurrenciesByDate(datePicked : string) {
+  getCurrenciesByDate(datePicked: string) {
     return this.currencyService.sortCurrencyByDate(datePicked).subscribe(
       data => {
         this.currencies = data;
@@ -88,7 +91,8 @@ export class ExchangeRatesComponent implements OnInit {
 
   addEvent(event: MatDatepickerInputEvent<Date>) {
     // @ts-ignore
-    let latest_date =this.datepipe.transform(event.value, 'yyyy-MM-dd');
+    let latest_date = this.datepipe.transform(event.value, 'yyyy-MM-dd');
+    this.pdfDate = `${latest_date}`;
     this.events.push(`${latest_date}`);
     this.getCurrenciesByDate(`${latest_date}`);
 
@@ -107,33 +111,31 @@ export class ExchangeRatesComponent implements OnInit {
   }
 
 
-  // isShowRange() {
-  //   this.showRange = !this.showRange;
-  // }
-  //
-  // isOneDate() {
-  //   this.showOneDate = !this.showOneDate;
-  // }
+  // Export to PDF
+  public openPDF(): void {
+    let DATA_RESULTS: any = document.getElementById('htmlDataResults');
+    let DATA: any = document.getElementById('htmlData');
+    if (this.isSpecificRate) {
+      let fileName = `${this.pdfDate}-all_exchange_rates_for_specific_date.pdf`;
+      this.exportToPDF(fileName, DATA);
+    }
+    if (this.isAllRates) {
+      let fileName = `${this.pdfDate}-all_exchange_rates_for_Polish_zloty.pdf`;
+      this.exportToPDF(fileName, DATA_RESULTS);
+    }
+  }
 
+
+  private exportToPDF(fileName: string, data: any) {
+    html2canvas(data).then((canvas) => {
+      let fileWidth = 208;
+      let fileHeight = (canvas.height * fileWidth) / canvas.width;
+      const FILEURI = canvas.toDataURL('image/png');
+      let PDF = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+      PDF.save(fileName);
+    });
+  }
 
 }
-
-
-
-
-// 20220531200836
-// https://api.nbp.pl/api/exchangerates/tables/C?format=json
-
-// [
-//   {
-//     "table": "C",
-//     "no": "104/C/NBP/2022",
-//     "tradingDate": "2022-05-30",
-//     "effectiveDate": "2022-05-31",
-//     "rates": [
-//       {
-//         "currency": "dolar amerykański",
-//         "code": "USD",
-//         "bid": 4.2094,
-//         "ask": 4.2944
-//       },
