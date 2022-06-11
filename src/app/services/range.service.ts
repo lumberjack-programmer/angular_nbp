@@ -14,6 +14,14 @@ export class RangeService {
 
   getCurrencyRateDateRange (theRange: string) {
     const fullUrl = `${this.baseUrl}${theRange}/?format=json`;
+   // console.log(fullUrl);
+    return this.httpClient.get<Range>(fullUrl);
+  }
+
+  //https://api.nbp.pl/api/exchangerates/rates/c/eur/?format=json
+
+  getCurrencyRateByCode (theCode: string) {
+    const fullUrl = `${this.baseUrl}${theCode}?format=json`;
     console.log(fullUrl);
     return this.httpClient.get<Range>(fullUrl);
   }

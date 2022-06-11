@@ -28,6 +28,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { RateComponent } from './services/rate/rate.component';
 import { DateRangeComponent } from './components/date-range/date-range.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

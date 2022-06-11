@@ -21,6 +21,8 @@ export class Range {
 
 
 
+
+
 //
 // table": "C",
 // "currency": "dolar amerykański",

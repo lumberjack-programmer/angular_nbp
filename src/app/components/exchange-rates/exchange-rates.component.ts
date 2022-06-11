@@ -66,12 +66,13 @@ export class ExchangeRatesComponent implements OnInit {
 
   log: number = -1;
 
-  constructor(private currencyService: CurrencyService, private datepipe: DatePipe,) {
+  constructor(private currencyService: CurrencyService, private datepipe: DatePipe) {
   }
 
   ngOnInit(): void {
     this.getCurrencies();
   }
+
 
   getCurrencies() {
     return this.currencyService.getPriceList().subscribe(

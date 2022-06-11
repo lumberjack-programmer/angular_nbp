@@ -13,5 +13,86 @@
 
 
 
+
+
+    <div class="currency-convertor">
+<!--      <h4 class="section-name">Gold Price Today</h4>-->
+      <div class="price-list">
+        <div class="row">
+        <div class="col">
+          <div class="date_picker">
+            <mat-form-field appearance="fill">
+              <!--          <mat-label>Date Picker</mat-label>-->
+              <mat-select (selectionChange)="getSelectLeft($event.value)" [(value)]="selectedLeft">
+                <mat-option *ngFor="let choice of choicesLeft" [value]="choice.value">
+                  {{choice.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="date_picker">
+            <form class="example-form">
+              <mat-form-field class="example-full-width" appearance="fill">
+<!--                <mat-label>Enter a value</mat-label>-->
+                <input placeholder="Enter a value" type="number" maxLength="10" value="1" (ngModelChange)="getLeftValue($event)" [(ngModel)]="inputLeft" matInput
+                       [formControl]="numberFormControlLeft" [errorStateMatcher]="matcherLeft">
+                <!--            <mat-hint>Errors appear instantly!</mat-hint>-->
+                <mat-error *ngIf="numberFormControlLeft.hasError('number') && !numberFormControlLeft.hasError('required')">
+                  Please enter a valid number
+                </mat-error>
+                <mat-error *ngIf="numberFormControlLeft.hasError('required')">
+                  Number is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </form>
+          </div>
+        </div>
+
+
+        <div class="col">
+          <div class="date_picker">
+            <mat-form-field appearance="fill">
+              <!--          <mat-label>Date Picker</mat-label>-->
+              <mat-select (selectionChange)="getSelectRight($event.value)" [(value)]="selectedRight">
+                <mat-option *ngFor="let choice of choicesRight" [value]="choice.value">
+                  {{choice.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="date_picker">
+            <form class="example-form">
+              <mat-form-field class="example-full-width" appearance="fill">
+<!--                <mat-label>Enter a value</mat-label>-->
+                <input placeholder="Enter a value" type="number" maxLength="10" value="1" (ngModelChange)="getRightValue($event)" [(ngModel)]="inputRight" matInput
+                       [formControl]="numberFormControlRight" [errorStateMatcher]="matcherRight">
+                <!--            <mat-hint>Errors appear instantly!</mat-hint>-->
+                <mat-error *ngIf="numberFormControlRight.hasError('number') && !numberFormControlRight.hasError('required')">
+                  Please enter a valid number
+                </mat-error>
+                <mat-error *ngIf="numberFormControlRight.hasError('required')">
+                  Number is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </form>
+          </div>
+        </div>
+
+        </div>
+<!--        <div>-->
+<!--          <div class="price-list-data">343</div>-->
+<!--          <div class="price-list-cena">43</div>-->
+<!--        </div>-->
+      </div>
+    </div>
+
+
+
   </div>
 </div>
