@@ -20,9 +20,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-class NumberFormControl {
-
-}
 
 @Component({
   selector: 'app-exchange-rates',

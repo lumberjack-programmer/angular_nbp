@@ -31,7 +31,7 @@ export class CurrencyService {
 
   handleError(error : any) {
       console.log('OK');
-      return throwError('dwdw');
+      return throwError('error');
   }
 
 

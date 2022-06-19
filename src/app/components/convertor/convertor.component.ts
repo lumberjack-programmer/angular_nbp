@@ -38,7 +38,6 @@ export class ConvertorComponent implements OnInit {
   matcherLeft = new MyErrorStateMatcher();
   matcherRight = new MyErrorStateMatcher();
 
-
   // @ts-ignore
   currencyRateCodeLeft: Range;
 
@@ -86,7 +85,6 @@ export class ConvertorComponent implements OnInit {
     );
   }
 
-
   constructor(private currencyService: CurrencyService, private rangeService: RangeService) { }
 
   ngOnInit(): void {
@@ -103,21 +101,16 @@ export class ConvertorComponent implements OnInit {
     // @ts-ignore
     this.currentInputValueLeft = event * this.currencyRateCodeLeft[ratesStr][0].bid;
 
-
     // @ts-ignore
     let inputRoundRight: number = Math.round(((this.currentInputValueLeft / this.currencyRateCodeRight[ratesStr][0].bid) + Number.EPSILON) * 100) / 100;
     this.inputRight = inputRoundRight.toString();
 
-    // @ts-ignore
-    // let inputRoundRight: number = (this.inputLeft * this.currencyRateCodeLeft[ratesStr][0].bid) / this.currencyRateCodeRight[ratesStr][0].bid;
-    // this.inputRight = inputRoundRight.toString();
   }
 
 
   getRightValue(event: number) {
 
     let ratesStr: string = 'rates';
-
 
     // @ts-ignore
     this.currentInputValueRight = event * this.currencyRateCodeRight[ratesStr][0].bid;
@@ -126,10 +119,6 @@ export class ConvertorComponent implements OnInit {
      let inputRoundLeft: number = Math.round(((this.currentInputValueRight / this.currencyRateCodeLeft[ratesStr][0].bid) + Number.EPSILON) * 100) / 100;
     this.inputLeft = inputRoundLeft.toString();
 
-
-    // @ts-ignore
-    // let inputRoundLeft: number = (this.inputRight * this.currencyRateCodeRight[ratesStr][0].bid) / this.currencyRateCodeLeft[ratesStr][0].bid;
-    // this.inputLeft = inputRoundLeft.toString();
   }
 
   getSelectLeft(event: string) {
@@ -156,8 +145,7 @@ export class ConvertorComponent implements OnInit {
 
   updateLeft () {
     let ratesStr: string = 'rates';
-    // @ts-ignore
-    //let inputRoundLeft: number = (this.inputRight * this.currencyRateCodeRight[ratesStr][0].bid) / this.currencyRateCodeLeft[ratesStr][0].bid;
+
     // @ts-ignore
     let inputRoundLeft: number = Math.round(((this.currentInputValueRight / this.currencyRateCodeLeft[ratesStr][0].bid) + Number.EPSILON) * 100) / 100;
     this.inputLeft = inputRoundLeft.toString();
@@ -177,7 +165,6 @@ export class ConvertorComponent implements OnInit {
 
   updateRight() {
     let ratesStr: string = 'rates';
-    console.log('Check');
     // @ts-ignore
     let inputRoundRight: number = Math.round(((this.currentInputValueLeft / this.currencyRateCodeRight[ratesStr][0].bid) + Number.EPSILON) * 100) / 100;
     this.inputRight = inputRoundRight.toString();

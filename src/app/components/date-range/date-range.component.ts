@@ -122,19 +122,17 @@ export class DateRangeComponent implements OnInit {
         });
 
 
-        // console.log(dT.toLocaleTimeString('en', {year: 'numeric', month: 'short', day: 'numeric'}));
         // @ts-ignore
         let ask = res[ratesString].map(res => {
           let askString = 'ask';
           return res[askString];
         });
-        console.log(ask);
+
         // @ts-ignore
         let bid = res[ratesString].map(res => {
           let bidString = 'bid';
           return res[bidString];
         });
-        console.log(bid);
 
         let ctx2 = document.getElementById('canvas');
         // @ts-ignore
@@ -150,13 +148,8 @@ export class DateRangeComponent implements OnInit {
             datasets: [
               {
                 data: ask,
-                // borderColor: [
-                //   'rgb(248,54,89)',
-                //   'rgba(54, 162, 235, 1)',
-                // ],
                 backgroundColor: [
                     'rgba(0, 0, 0, 0.1)',
-
                 ],
                 borderWidth: 2,
                 segment: {
@@ -164,22 +157,6 @@ export class DateRangeComponent implements OnInit {
                   borderDash: ctx => down(ctx, [6, 6]),
                 }
               }
-              // {
-              //   data: bid,
-              //   // borderColor: [
-              //   //   'rgb(248,54,89)',
-              //   //   'rgba(54, 162, 235, 1)',
-              //   // ],
-              //   backgroundColor: [
-              //     'rgba(0, 0, 0, 0.1)',
-              //
-              //   ],
-              //   borderWidth: 2,
-              //   segment: {
-              //     borderColor: ctx => up(ctx, 'rgb(248,54,89)') || down(ctx, 'rgba(54, 162, 235, 1)'),
-              //     borderDash: ctx => down(ctx, [6, 6]),
-              //   }
-              // }
             ]
           },
           options: {

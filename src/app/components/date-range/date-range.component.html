@@ -14,7 +14,6 @@
     <div class="col">
       <div class="date_picker">
         <mat-form-field appearance="fill">
-          <!--          <mat-label>Date Picker</mat-label>-->
           <mat-select (selectionChange)="getSelect($event.value)" [(value)]="selected">
             <mat-option *ngFor="let choice of choices" [value]="choice.value">
               {{choice.viewValue}}
@@ -33,7 +32,6 @@
             <input matStartDate formControlName="start" placeholder="Start date">
             <input matEndDate formControlName="end" placeholder="End date" (dateInput)="selectRange(range)">
           </mat-date-range-input>
-<!--          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>-->
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-date-range-picker #picker></mat-date-range-picker>
 
@@ -61,7 +59,6 @@
           </tr>
           </thead>
           <tbody>
-          <!--          *ngFor="let test of currencyRateDateRange[0].rates"-->
           <tr *ngFor="let rangeCurrent of currencyRateDateRange.rates">
             <th scope="row">{{currencyRateDateRange.currency}}</th>
             <td>{{currencyRateDateRange.code}}</td>

@@ -14,9 +14,6 @@ export class PriceService {
 
   getPriceList(): Observable<Price[]> {
     return this.http.get<Price[]>(this.goldPriceUrl);
-      // .pipe(
-      //   map(response => response._embedded.prices)
-      // );
   }
 }
 
