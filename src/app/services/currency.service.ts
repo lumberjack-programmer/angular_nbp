@@ -11,7 +11,7 @@ import { throwError } from 'rxjs';
 })
 export class CurrencyService {
 
-  private currencyUrl = "https://api.nbp.pl/api/exchangerates/tables/C?format=json";
+  private currencyUrl = "https://api.nbp.pl/api/exchangerates/tables/c?format=json";
 
   constructor(private http: HttpClient) { }
 
@@ -31,7 +31,7 @@ export class CurrencyService {
 
   handleError(error : any) {
       console.log('OK');
-      return throwError('dwdw');
+      return throwError('error');
   }
 
 

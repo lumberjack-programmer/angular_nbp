@@ -9,14 +9,14 @@ import {RegistrationComponent} from "./components/registration/registration.comp
 import {DateRangeComponent} from "./components/date-range/date-range.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  // {path: '', component: HomeComponent},
   {path: 'exchange-rates', component: ExchangeRatesComponent},
   {path: 'currency-convertor', component: ConvertorComponent},
   {path: 'data-range', component: DateRangeComponent},
   {path: 'gold', component: GoldPageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: '**', redirectTo: '', component: HomeComponent},];
+  {path: '**', redirectTo: '', component: ExchangeRatesComponent},];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

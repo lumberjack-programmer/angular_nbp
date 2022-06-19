@@ -25,7 +25,6 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import { DatePipe } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { RateComponent } from './services/rate/rate.component';
 import { DateRangeComponent } from './components/date-range/date-range.component';
 
 @NgModule({
@@ -42,7 +41,6 @@ import { DateRangeComponent } from './components/date-range/date-range.component
     ConvertorComponent,
     LoginComponent,
     RegistrationComponent,
-    RateComponent,
     DateRangeComponent
   ],
   imports: [

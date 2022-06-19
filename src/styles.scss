@@ -84,10 +84,22 @@ input[type=number] {
 }
 
 
+.ngx-charts .gridline-path {
+  stroke: #666666 !important;
+}
+
+::ng-deep .ngx-charts { text { fill: #fff !important; } }
+
+.canvas-config {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
 
 
-
-
+::placeholder {
+  color: $dark-grayish-blue !important;
+  opacity: 1;
+}
 
 
 body {
@@ -140,5 +152,12 @@ body {
 .page-title {
   position: relative;
   margin-top: 1.3em;
+}
+
+.home-text {
+  margin-top: 1em;
+  //border: 1px solid white;
+  padding: 5em;
+  height: 100%;
 }
 

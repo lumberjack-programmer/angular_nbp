@@ -1,23 +1,3 @@
-<!--<div class="body-container">-->
-<!--  <div class="container">-->
-<!--    <div class="row">-->
-<!--      <div class="col col-1">-->
-<!--        <div class="icon-circle">-->
-<!--&lt;!&ndash;          <img src="{{iconCircle}}" alt="no img">&ndash;&gt;-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col">-->
-<!--        <h3 class="page-title">Exchange Rates</h3>-->
-<!--        <div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      &lt;!&ndash;    Here Gold Price&ndash;&gt;-->
-<!--      <app-gold-price></app-gold-price>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
 <div class="container">
   <div class="row">
     <div class="col col-1">
@@ -31,7 +11,6 @@
       <div>
       </div>
     </div>
-
 
     <div class="col">
       <div class="date_picker">
@@ -52,28 +31,14 @@
         <div class="date_picker">
           <mat-form-field appearance="fill">
             <mat-label style="color:white;">The date picked on</mat-label>
-            <!-- #docregion toggle -->
             <input matInput [matDatepicker]="picker" [value]="date.value" (dateInput)="addEvent($event)">
-            <!--        <mat-hint>MM/DD/YYYY</mat-hint>-->
             <mat-datepicker-toggle style="color:white;" matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker style="color:white;" #picker></mat-datepicker>
-            <!-- #enddocregion toggle -->
           </mat-form-field>
           <div>
           </div>
         </div>
       </div>
-
-
-
-
-
-    <!--    <div class="col">-->
-    <!--      <input-->
-    <!--        type="number" min="1"-->
-    <!--        [(ngModel)]="username"-->
-    <!--        placeholder="Enter some text here" />-->
-    <!--    </div>-->
 
 
       <div [hidden]="isSpecificRate" class="date_picker">
@@ -82,7 +47,6 @@
             <mat-label>Value in PLN</mat-label>
             <input type="number" maxLength="10" value="1" [(ngModel)]="username" matInput
                    [formControl]="numberFormControl" [errorStateMatcher]="matcher">
-<!--            <mat-hint>Errors appear instantly!</mat-hint>-->
             <mat-error *ngIf="numberFormControl.hasError('number') && !numberFormControl.hasError('required')">
               Please enter a valid number
             </mat-error>
@@ -94,14 +58,13 @@
       </div>
     </div>
 
-
     <div class="col">
         <button class="body-nav-button right-round" type="button" (click)="openPDF()"><i class="bi bi-box-arrow-in-right icon-button"></i>  Export to PDF</button>
       <div>
       </div>
     </div>
 
-    <!--    Here is the content-->
+
     <div [hidden]="isAllRates">
       <div class="currency-rates-table">
         <table class="table table-striped table-dark" id="htmlData">
@@ -126,7 +89,6 @@
     </div>
 
 
-    <!--    Here is the content-->
     <div [hidden]="isSpecificRate">
       <div class="currency-rates-table">
         <table class="table table-striped table-dark" id="htmlDataResults">
@@ -154,61 +116,3 @@
   </div>
 </div>
 
-
-<!--<mat-form-field>-->
-<!--  <input matInput [matDatepicker]="expiration1" placeholder="Expiration" [formControl]="expiration" required (dateChange)="EndDateChange($event)">-->
-<!--  <mat-datepicker-toggle matSuffix [for]="expiration1"></mat-datepicker-toggle>-->
-<!--  <mat-datepicker #expiration1></mat-datepicker>-->
-<!--</mat-form-field>-->
-
-<!--"currency": "dolar amerykański",-->
-<!--"code": "USD",-->
-<!--"bid": 4.2094,-->
-<!--"ask": 4.2944-->
-<!--},-->
-
-<!--table": "C",-->
-<!--"currency": "euro",-->
-<!--"code": "EUR",-->
-<!--"rates": [-->
-<!--{-->
-<!--"no": "094/C/NBP/2022",-->
-<!--"effectiveDate": "2022-05-17",-->
-<!--"bid": 4.6044,-->
-<!--"ask": 4.6974-->
-<!--},-->
-
-
-<!--Table – table type-->
-<!--No – table number-->
-<!--TradingDate – trading date (for table C only)-->
-<!--EffectiveDate – publication date-->
-<!--Rates – a list of exchange rates of particular currencies in the table-->
-<!--Country – country name-->
-<!--Symbol – currency symbol (numerical, concerns historic exchange rates)-->
-<!--Currency – currency name-->
-<!--Code – currency code-->
-<!--Bid – calculated currency buy exchange rate (concerns table C) (for table C only)-->
-<!--Ask – calculated currency sell exchange rate (concerns table C) ()-->
-<!--Mid – calculated currency average exchange rate (for tables A and B)-->
-
-
-<!--export class Currency {-->
-<!--// @ts-ignore-->
-<!--table: string;-->
-<!--// @ts-ignore-->
-<!--no: string;-->
-<!--// @ts-ignore-->
-<!--tradingDate : Date;-->
-<!--// @ts-ignore-->
-<!--effectiveDate : Date;-->
-<!--// @ts-ignore-->
-<!--rates : [-->
-<!--{-->
-<!--currency: string;-->
-<!--code: string;-->
-<!--bid: number;-->
-<!--ask: number;-->
-<!--}-->
-<!--];-->
-<!--}-->
